@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Store | NeonReflections</title>
+	<link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.scoped.css">
+	<link rel="stylesheet" href="Shop.css">
+	<script src="Shop.js" defer></script>
+</head>
+<body>
+	<div class="site-shell">
+		<header>
+			<h1>NeonReflections</h1>
+			<p>Art, prints, and character pieces from the studio.</p>
+			<nav aria-label="Main Navigation">
+				<ul>
+					<li><a href="Homepage.HTML">Home</a></li>
+					<li><a href="Shop.HTML" aria-current="page">Store</a></li>
+					<li><a href="Gallery.HTML">Gallery</a></li>
+					<li><a href="Blog.html">Blog</a></li>
+					<li><a href="About.HTML">About</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section class="shop-intro" aria-labelledby="shop-heading">
+				<div class="title-bar">
+					<div class="title-bar-text">NeonReflections - Store</div>
+					<div class="title-bar-controls" aria-label="window controls">
+						<button type="button" aria-label="Minimize"></button>
+						<button type="button" aria-label="Restore"></button>
+						<button type="button" aria-label="Close"></button>
+					</div>
+				</div>
+				<div class="intro-content">
+					<p class="eyebrow">Featured collection</p>
+					<h2 id="shop-heading">Take a piece of the studio home.</h2>
+					<p>Browse the current selection of standees and posters, then add your favorites to the small local cart.</p>
+				</div>
+			</section>
+
+			<div class="shop-layout">
+				<section aria-labelledby="products-heading">
+					<h2 id="products-heading" class="section-heading">Featured products</h2>
+					<div id="products-grid" class="product-grid"></div>
+				</section>
+
+				<aside class="cart-panel" aria-labelledby="cart-heading">
+					<div class="title-bar">
+						<div class="title-bar-text">Shopping Cart</div>
+						<div class="title-bar-controls" aria-label="window controls">
+							<button type="button" aria-label="Minimize"></button>
+							<button type="button" aria-label="Restore"></button>
+							<button type="button" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="cart-content">
+						<h2 id="cart-heading">Your cart</h2>
+						<div id="cart-items" class="cart-items" aria-live="polite"></div>
+						<div class="cart-total"><span>Total</span><strong id="cart-total">$0</strong></div>
+						<a id="checkout-link" class="button-link disabled" href="Checkout.html" aria-disabled="true">Go to checkout</a>
+						<button id="clear-cart" class="secondary-button" type="button">Clear cart</button>
+					</div>
+				</aside>
+			</div>
+		</main>
+
+		<footer><p>&copy; <span data-current-year>2026</span> Keymy Aponte / NeonReflections</p></footer>
+	</div>
+</body>
+</html>

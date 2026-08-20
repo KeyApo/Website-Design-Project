@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog | NeonReflections</title>
+	<link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.scoped.css">
+	<link rel="stylesheet" href="Blog.css">
+	<script src="Blog.js" defer></script>
+</head>
+<body>
+	<div class="site-shell">
+		<header>
+			<h1>NeonReflections</h1>
+			<p>Notes from the studio, behind the scenes, and new work.</p>
+			<nav aria-label="Main Navigation">
+				<ul>
+					<li><a href="Homepage.HTML">Home</a></li>
+					<li><a href="Shop.HTML">Store</a></li>
+					<li><a href="Gallery.HTML">Gallery</a></li>
+					<li><a href="Blog.html" aria-current="page">Blog</a></li>
+					<li><a href="About.HTML">About</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section class="page-intro" aria-labelledby="blog-heading">
+				<div class="title-bar">
+					<div class="title-bar-text">NeonReflections - Artist Updates</div>
+					<div class="title-bar-controls" aria-label="window controls">
+						<button type="button" aria-label="Minimize"></button>
+						<button type="button" aria-label="Restore"></button>
+						<button type="button" aria-label="Close"></button>
+					</div>
+				</div>
+				<div class="intro-content">
+					<p class="eyebrow">Studio journal</p>
+					<h2 id="blog-heading">Updates from the artist</h2>
+					<p>Follow new products, finished artwork, and random updates from a truly random artist.</p>
+				</div>
+			</section>
+
+			<section class="blog-tools" aria-label="Blog filters">
+				<label for="post-search">Search updates</label>
+				<input id="post-search" type="search" placeholder="Try: products or process">
+			</section>
+
+			<section class="post-list" aria-label="Artist updates" aria-live="polite">
+				<article class="post-card" data-search="new products standee shop vic blanco deis">
+					<div class="title-bar">
+						<div class="title-bar-text">New Product Release</div>
+						<div class="title-bar-controls" aria-label="window controls">
+							<button type="button" aria-label="Minimize"></button>
+							<button type="button" aria-label="Restore"></button>
+							<button type="button" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="post-content">
+						<p class="post-date">August 20, 2026</p>
+						<h2>Vic Blanco-Deis & Alejandro standees are here</h2>
+						<p>The newest standee designs have arrived in the shop. Both the King of Hearts and his loyal Page will be hitting shelves on August 30th! Come pre-order your delightfully mad duo today!</p>
+						<a class="text-link" href="Shop.HTML">See the shop &rarr;</a>
+					</div>
+				</article>
+
+				<article class="post-card" data-search="process artwork behind scenes humility pierre vampire hunter d">
+					<div class="title-bar">
+						<div class="title-bar-text">Behind the Artwork</div>
+						<div class="title-bar-controls" aria-label="window controls">
+							<button type="button" aria-label="Minimize"></button>
+							<button type="button" aria-label="Restore"></button>
+							<button type="button" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="post-content">
+						<p class="post-date">August 14, 2026</p>
+						<h2>Making "Humility"</h2>
+						<p>This was a spurr of the moment artwork I created with D and Pierre. I always loved depicting them as a sort of devoted knight and holy prince dynamic, and I was Yoshitaka Amano's art style to do so.</p>
+						<a class="text-link" href="Gallery.HTML">View the gallery &rarr;</a>
+					</div>
+				</article>
+
+				<article class="post-card" data-search="new artwork peculiar daan fear hunger termina sketch">
+					<div class="title-bar">
+						<div class="title-bar-text">Behind the Artwork</div>
+						<div class="title-bar-controls" aria-label="window controls">
+							<button type="button" aria-label="Minimize"></button>
+							<button type="button" aria-label="Restore"></button>
+							<button type="button" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="post-content">
+						<p class="post-date">August 7, 2026</p>
+						<h2>Peculiar, or Just Miserable?</h2>
+						<p>Everyone knows how much I adore Daan in Fear and Hunger: Termina. He is a pretty tragic character by all accounts, but I sort of like mixing the gloom he is always in with the mundane moments the game allows him.</p>
+						<a class="text-link" href="Gallery.HTML">Browse finished work &rarr;</a>
+					</div>
+				</article>
+			</section>
+
+			<p id="no-results" class="no-results" hidden>No updates match that search.</p>
+		</main>
+
+		<footer><p>&copy; <span data-current-year>2026</span> Keymy Aponte / NeonReflections</p></footer>
+	</div>
+</body>
+</html>

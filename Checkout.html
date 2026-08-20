@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Checkout | NeonReflections</title>
+	<link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.scoped.css">
+	<link rel="stylesheet" href="Shop.css">
+	<script src="Checkout.js" defer></script>
+</head>
+<body>
+	<div class="site-shell">
+		<header>
+			<h1>NeonReflections</h1>
+			<p>Checkout</p>
+			<nav aria-label="Main Navigation">
+				<ul>
+					<li><a href="Homepage.HTML">Home</a></li>
+					<li><a href="Shop.HTML">Store</a></li>
+					<li><a href="Gallery.HTML">Gallery</a></li>
+					<li><a href="Blog.html">Blog</a></li>
+					<li><a href="About.HTML">About</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section class="checkout-layout">
+				<div class="checkout-box">
+					<div class="title-bar">
+						<div class="title-bar-text">NeonReflections - Checkout</div>
+						<div class="title-bar-controls" aria-label="window controls">
+							<button type="button" aria-label="Minimize"></button>
+							<button type="button" aria-label="Restore"></button>
+							<button type="button" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="checkout-content">
+						<h2>Complete your order</h2>
+						<p class="checkout-note">This is a simple demo checkout. No payment is collected here.</p>
+						<div id="checkout-items" class="checkout-items"></div>
+						<form id="checkout-form">
+							<label for="customer-name">Name</label>
+							<input id="customer-name" name="name" type="text" autocomplete="name" required>
+							<label for="customer-email">Email</label>
+							<input id="customer-email" name="email" type="email" autocomplete="email" required>
+							<label for="customer-address">Shipping address</label>
+							<textarea id="customer-address" name="address" rows="4" autocomplete="street-address" required></textarea>
+							<button class="add-button" type="submit">Place demo order</button>
+						</form>
+						<p id="order-message" class="order-message" role="status" hidden></p>
+					</div>
+				</div>
+
+				<aside class="cart-panel order-summary" aria-labelledby="summary-heading">
+					<div class="title-bar">
+						<div class="title-bar-text">Order Summary</div>
+						<div class="title-bar-controls" aria-label="window controls">
+							<button type="button" aria-label="Minimize"></button>
+							<button type="button" aria-label="Restore"></button>
+							<button type="button" aria-label="Close"></button>
+						</div>
+					</div>
+					<div class="cart-content">
+						<h2 id="summary-heading">Your total</h2>
+						<p><span id="summary-count">0</span> item(s)</p>
+						<div class="cart-total"><span>Total</span><strong id="summary-total">$0</strong></div>
+						<a class="text-link" href="Shop.HTML">&larr; Return to store</a>
+					</div>
+				</aside>
+			</section>
+		</main>
+
+		<footer><p>&copy; <span data-current-year>2026</span> Keymy Aponte / NeonReflections</p></footer>
+	</div>
+</body>
+</html>

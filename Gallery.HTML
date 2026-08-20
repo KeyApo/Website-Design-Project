@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+
+  <!--Main Gallery Stylesheet-->
+  <link rel="stylesheet" href="Gallery.css">
+  <!--Windows Vista Style Sheet-->
+  <link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.scoped.css">
+  <!-- JavaScript -->
+  <script src="Gallery.js" defer></script>
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- ======================= Header ===========================-->
+
+    <header class="header">
+      <h1>Gallery</h1>
+      <p>Hover over an artwork to see more information!</p>
+
+      <nav aria-label="gallery-nav">
+        <ul>
+          <li><a href="Homepage.HTML">Home</a></li>
+          <li><a href="Shop.HTML">Store</a></li>
+          <li><a href="Gallery.HTML" aria-current="page">Gallery</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="About.HTML">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ======================= Body ===========================-->
+
+    <section id="gallery" class="gallery" aria-live="polite">
+      <!-- =========================================
+           GALLERY TEMPLATE - Add your images below
+           Replace the src path with your image filename
+           Example: ../Images/YourImageName.png
+           ========================================= -->
+
+      <article class="gallery-card" aria-label="Gallery image 1">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 1</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/Neon 22 Birthday.png" alt="Gallery image 1" loading="lazy">
+        <div class="caption">
+          <strong>Image 1</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <article class="gallery-card" aria-label="Gallery image 2">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 2</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/D and Pierre, Humility COLORED.png" alt="Gallery image 2" loading="lazy">
+        <div class="caption">
+          <strong>Image 2</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <article class="gallery-card" aria-label="Gallery image 3">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 3</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/Daan, Peculiar.png" alt="Gallery image 3" loading="lazy">
+        <div class="caption">
+          <strong>Image 3</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <article class="gallery-card" aria-label="Gallery image 4">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 4</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/Star Globe Theater Promo, Orpheus and Pierre.png" alt="Gallery image 4" loading="lazy">
+        <div class="caption">
+          <strong>Image 4</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <article class="gallery-card" aria-label="Gallery image 5">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 5</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/Alejandro, King of Hearts, Ref.png" alt="Gallery image 5" loading="lazy">
+        <div class="caption">
+          <strong>Image 5</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <article class="gallery-card" aria-label="Gallery image 6">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 6</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/Vic Blanco-Deis, Ref.png" alt="Gallery image 6" loading="lazy">
+        <div class="caption">
+          <strong>Image 6</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <article class="gallery-card" aria-label="Gallery image 7">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 7</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/Vampire Hunter D, Patrick Nagel Inspo Art.png" alt="Gallery image 7" loading="lazy">
+        <div class="caption">
+          <strong>Image 7</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <article class="gallery-card" aria-label="Gallery image 8">
+        <div class="title-bar">
+          <div class="title-bar-text">Image 8</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Restore"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <img src="Images/Voz, Enki Meeting.png" alt="Gallery image 8" loading="lazy">
+        <div class="caption">
+          <strong>Image 8</strong>
+          <span>Featured item</span>
+        </div>
+      </article>
+
+      <!-- Copy the template above to add more images -->
+    </section>
+
+    <footer>
+      <section>
+        <p>&copy; Website Author / Artist : Keymy Aponte / NeonReflections</p>
+      </section>
+    </footer>
+
+  </main>
+</body>
+</html>

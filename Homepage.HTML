@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        /***********************/
+        /* Name: Keymy Aponte
+        /* Date: 8/16/2026
+        /* File Purpose
+        /**********************/
+    -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <title>NeonReflections</title>
+
+    <!--Windows Vista Style Sheet-->
+    <link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.scoped.css">
+
+    <!-- Main Homepage Stylesheet -->
+    <link rel="stylesheet" href="Homepage.css">
+
+    <!-- JavaScript -->
+    <script src="Homepage.js" defer></script>
+</head>
+
+<body>
+    <!--============ HEADER ================-->
+    <header>
+        <h1>NeonReflections</h1>
+        <p>The explore the hottest corner of the internet!</p>
+
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="Homepage.HTML" aria-current="page">Home</a></li>
+                <li><a href="Shop.HTML">Store</a></li>
+                <li><a href="Gallery.HTML">Gallery</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="About.HTML">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--============= BODY ===================-->
+
+    <main>
+        <!-- Intro Banner -->
+         
+        <section class="intro-banner" aria-label="intro-image">
+            <div class="title-bar">
+                <div class="title-bar-text">NeonReflections - Home</div>
+                <div class="title-bar-controls" aria-label="window controls">
+                    <button type="button" aria-label="Minimize"></button>
+                    <button type="button" aria-label="Restore"></button>
+                    <button type="button" aria-label="Close"></button>
+                </div>
+            </div>
+            <img src="Images/Neon 22 Birthday.png" alt="NeonReflections Banner">
+            <div class="banner-text">
+                <h2>Home</h2>
+            </div>
+        </section>
+
+        <!-- Featured Art -->
+        <div class="slideshow-container">
+            <h2>Featured Artworks</h2>
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="Images/D and Pierre, Humility COLORED.png" style="width:100%">
+                <div class="text">Artwork Title: "Humility" featuring D from the Japanese Sci-Fi Horror novel
+                     series Vampire Hunter D and Pierre Penn, an original character</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="Images/Daan, Peculiar.png" style="width:100%">
+                <div class="text">Artwork Title: "Peculiar" featuring Daan from the
+                     video game Fear and Hunger:Termina</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="Images/Voz, Enki Meeting.png" style="width:100%">
+                <div class="text">Artwork Title: "A Matter of Intellect" featuring Enki Ankarian from the video game
+                     Fear and Hunger and "Voz", an original character</div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <!-- Info Sections -->
+        <section id="featured-products">
+            <h2>Featured Products</h2>
+            <section id="productsContainer" class="grid"></section>
+        </section>
+
+        <footer>
+            <section>
+                <p>&copy; Website Author / Artist : Keymy Aponte / NeonReflections</p>
+            </section>
+        </footer>
+
+    </main>
+</body>
+
