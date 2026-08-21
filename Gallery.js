@@ -1,3 +1,4 @@
+/* Gallery card references */
 const galleryCards = document.querySelectorAll('.gallery-card');
 
 galleryCards.forEach((card) => {
@@ -5,7 +6,9 @@ galleryCards.forEach((card) => {
 
   if (!img) return;
 
+  /* Match the card ratio to the loaded image */
   const applyRatioClass = () => {
+	if (!img.naturalWidth || !img.naturalHeight) return;
     const ratio = img.naturalWidth / img.naturalHeight;
 
     card.classList.remove('portrait', 'square', 'landscape');
@@ -24,4 +27,9 @@ galleryCards.forEach((card) => {
   } else {
     img.addEventListener('load', applyRatioClass, { once: true });
   }
+
+  /* Hide cards whose image cannot be loaded */
+  img.addEventListener("error", () => {
+    card.hidden = true;
+  });
 });

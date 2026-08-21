@@ -1,3 +1,8 @@
+/* =========================
+	Blog and About Styles
+========================= */
+
+/* Theme colors */
 :root {
 	--hot-pink: #ab1f63;
 	--purple: #4e2e7a;
@@ -11,6 +16,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	overflow-x: hidden;
+}
+
 body {
 	margin: 0;
 	background-color: var(--creme);
@@ -19,6 +28,7 @@ body {
 	line-height: 1.7;
 }
 
+/* Shared page container */
 .site-shell {
 	width: min(1100px, 100%);
 	margin: 0 auto;
@@ -26,6 +36,7 @@ body {
 }
 
 header {
+	width: calc(100% + 3rem);
 	margin: 0 -1.5rem;
 	padding: 2.5rem 2rem;
 	background: var(--hot-pink);
@@ -45,6 +56,7 @@ header p {
 	margin: 0;
 }
 
+/* Site navigation */
 nav ul {
 	display: flex;
 	justify-content: center;
@@ -73,9 +85,11 @@ main {
 	padding: 2.5rem 0;
 }
 
+/* Window panels and title bars */
 .page-intro,
 .post-card,
-.profile-panel {
+.profile-panel,
+.contact-panel {
 	overflow: hidden;
 	border: 5px solid var(--purple);
 	border-radius: 10px;
@@ -85,6 +99,10 @@ main {
 
 .page-intro {
 	margin-bottom: 2.5rem;
+}
+
+.contact-panel {
+	margin-top: 2.5rem;
 }
 
 .title-bar {
@@ -133,9 +151,11 @@ main {
 	background: linear-gradient(180deg, #ffb7b7, #d75d5d);
 }
 
+/* Panel content and headings */
 .intro-content,
 .post-content,
-.profile-content {
+.profile-content,
+.contact-content {
 	padding: 1.5rem;
 }
 
@@ -222,7 +242,66 @@ h2 {
 	text-align: center;
 }
 
+/* Contact form */
+.contact-form {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.form-field {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.form-field-wide {
+	grid-column: 1 / -1;
+}
+
+.form-field label {
+	color: var(--black);
+	font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+	width: 100%;
+	padding: 0.7rem 0.8rem;
+	border: 2px solid var(--purple);
+	border-radius: 4px;
+	background: white;
+	color: var(--ink);
+	font: inherit;
+}
+
+.form-field textarea {
+	min-height: 10rem;
+	resize: vertical;
+}
+
+.submit-button {
+	justify-self: start;
+	padding: 0.65rem 1.2rem;
+	border: 2px solid var(--purple);
+	border-radius: 4px;
+	background: var(--hot-pink);
+	color: white;
+	font: inherit;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+	background: var(--purple);
+}
+
+/* Footer */
 footer {
+	width: calc(100% + 3rem);
 	margin: 1rem -1.5rem 0;
 	padding: 2rem 1.5rem;
 	border-top: 5px solid var(--purple);
@@ -240,6 +319,7 @@ footer p {
 	outline-offset: 3px;
 }
 
+/* Responsive layout */
 @media (max-width: 600px) {
 	.site-shell {
 		padding: 0 1rem;
@@ -247,6 +327,7 @@ footer p {
 
 	header,
 	footer {
+		width: calc(100% + 2rem);
 		margin-left: -1rem;
 		margin-right: -1rem;
 	}
@@ -258,5 +339,19 @@ footer p {
 
 	.blog-tools input {
 		width: 100%;
+	}
+
+	.contact-form {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 720px) {
+	.contact-form {
+		grid-template-columns: 1fr;
+	}
+
+	.contact-form .form-field-wide {
+		grid-column: auto;
 	}
 }

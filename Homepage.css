@@ -13,6 +13,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* =========================================
   Variable Colors
 ========================================= */
@@ -38,6 +42,7 @@ body{
   Header
 =========================*/
 header{
+  width: 100%;
   background: var(--hot-pink);
   padding: 2.5rem 2rem;
   text-align: center;
@@ -205,7 +210,7 @@ h2 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -263,7 +268,7 @@ h2 {
   display: none;
   position: relative;
   width: 100%;
-  height: 500px;
+  height: clamp(280px, 52vw, 500px);
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -406,6 +411,11 @@ footer {
     font-size: 1.6rem;
   }
 
+  header {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
   nav ul {
     flex-direction: column;
     align-items: center;
@@ -413,5 +423,22 @@ footer {
 
   form {
     width: 100%;
+  }
+
+  main {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mySlides {
+    height: clamp(260px, 70vw, 420px);
+  }
+
+  .text {
+    font-size: 1rem;
   }
 }

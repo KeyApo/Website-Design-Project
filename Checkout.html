@@ -40,12 +40,64 @@
 						<p class="checkout-note">This is a simple demo checkout. No payment is collected here.</p>
 						<div id="checkout-items" class="checkout-items"></div>
 						<form id="checkout-form">
-							<label for="customer-name">Name</label>
-							<input id="customer-name" name="name" type="text" autocomplete="name" required>
-							<label for="customer-email">Email</label>
-							<input id="customer-email" name="email" type="email" autocomplete="email" required>
-							<label for="customer-address">Shipping address</label>
-							<textarea id="customer-address" name="address" rows="4" autocomplete="street-address" required></textarea>
+							<fieldset class="checkout-section shipping-section">
+								<legend>Shipping details</legend>
+								<div class="form-field">
+									<label for="customer-name">Full name</label>
+									<input id="customer-name" name="name" type="text" autocomplete="name" required>
+								</div>
+								<div class="form-field">
+									<label for="customer-email">Email</label>
+									<input id="customer-email" name="email" type="email" autocomplete="email" required>
+								</div>
+								<div class="form-field form-field-wide">
+									<label for="street-address">Street address</label>
+									<input id="street-address" name="street-address" type="text" autocomplete="street-address" required>
+								</div>
+								<div class="form-field">
+									<label for="city">City</label>
+									<input id="city" name="city" type="text" autocomplete="address-level2" required>
+								</div>
+								<div class="form-field">
+									<label for="state">State</label>
+									<input id="state" name="state" type="text" autocomplete="address-level1" required>
+								</div>
+								<div class="form-field">
+									<label for="zip-code">ZIP code</label>
+									<input id="zip-code" name="zip-code" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}(-[0-9]{4})?" required>
+								</div>
+								<div class="form-field">
+									<label for="phone-number">Phone number</label>
+									<input id="phone-number" name="phone-number" type="tel" autocomplete="tel" required>
+								</div>
+							</fieldset>
+							<fieldset class="checkout-section card-section">
+								<legend>Card details</legend>
+								<div class="form-field form-field-wide">
+									<label for="cardholder-name">Cardholder name</label>
+									<input id="cardholder-name" name="cardholder-name" type="text" autocomplete="cc-name" required>
+								</div>
+								<div class="form-field form-field-wide">
+									<label for="card-number">Credit card number</label>
+									<input id="card-number" name="card-number" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" pattern="[0-9 ]{13,19}" required>
+								</div>
+								<div class="form-field">
+									<label for="expiration-date">Expiration date</label>
+									<input id="expiration-date" name="expiration-date" type="month" autocomplete="cc-exp" required>
+								</div>
+								<div class="form-field">
+									<label for="security-code">Security code</label>
+									<input id="security-code" name="security-code" type="password" inputmode="numeric" autocomplete="cc-csc" maxlength="4" pattern="[0-9]{3,4}" required>
+								</div>
+								<div class="coupon-field form-field-wide">
+									<label for="coupon-code">Coupon code</label>
+									<div class="coupon-row">
+										<input id="coupon-code" name="coupon-code" type="text" autocomplete="off">
+										<button id="apply-coupon" class="secondary-button" type="button">Apply</button>
+									</div>
+									<p id="coupon-message" class="coupon-message" role="status" aria-live="polite"></p>
+								</div>
+							</fieldset>
 							<button class="add-button" type="submit">Place demo order</button>
 						</form>
 						<p id="order-message" class="order-message" role="status" hidden></p>

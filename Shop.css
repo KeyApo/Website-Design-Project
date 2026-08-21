@@ -1,3 +1,8 @@
+/* =========================
+	Store and Checkout Styles
+========================= */
+
+/* Theme colors */
 :root {
 	--hot-pink: #ab1f63;
 	--purple: #4e2e7a;
@@ -12,6 +17,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	overflow-x: hidden;
+}
+
 body {
 	margin: 0;
 	background: var(--creme);
@@ -20,6 +29,7 @@ body {
 	line-height: 1.7;
 }
 
+/* Shared page container */
 .site-shell {
 	width: min(1150px, 100%);
 	margin: 0 auto;
@@ -27,6 +37,7 @@ body {
 }
 
 header {
+	width: calc(100% + 3rem);
 	margin: 0 -1.5rem;
 	padding: 2.5rem 2rem;
 	background: var(--hot-pink);
@@ -47,6 +58,7 @@ footer p {
 	margin: 0;
 }
 
+/* Site navigation */
 nav ul {
 	display: flex;
 	justify-content: center;
@@ -75,6 +87,7 @@ main {
 	padding: 2.5rem 0;
 }
 
+/* Window panels and title bars */
 .shop-intro,
 .product-card,
 .checkout-box,
@@ -136,6 +149,7 @@ main {
 	background: linear-gradient(180deg, #ffb7b7, #d75d5d);
 }
 
+/* Checkout fields and validation feedback */
 .intro-content,
 .cart-content,
 .checkout-content {
@@ -167,14 +181,42 @@ main {
 	gap: 0.45rem;
 }
 
+.checkout-section {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	min-width: 0;
+	gap: 0.45rem;
+	margin: 0;
+	padding: 1rem;
+	border: 2px solid var(--purple);
+	border-radius: 4px;
+}
+
+.checkout-section legend {
+	grid-column: 1 / -1;
+	padding: 0 0.45rem;
+	color: var(--purple);
+	font-weight: bold;
+}
+
 #checkout-form label {
-	margin-top: 0.55rem;
 	color: var(--black);
 	font-weight: bold;
 }
 
+.form-field {
+	display: grid;
+	min-width: 0;
+	gap: 0.35rem;
+}
+
+.form-field-wide {
+	grid-column: 1 / -1;
+}
+
 #checkout-form input,
 #checkout-form textarea {
+	min-width: 0;
 	width: 100%;
 	padding: 0.65rem 0.75rem;
 	border: 2px solid var(--purple);
@@ -186,6 +228,34 @@ main {
 
 #checkout-form textarea {
 	resize: vertical;
+}
+
+.coupon-row {
+	display: flex;
+	gap: 0.65rem;
+}
+
+.coupon-row input {
+	min-width: 0;
+}
+
+.coupon-row .secondary-button {
+	width: auto;
+	margin-top: 0;
+	flex: 0 0 auto;
+}
+
+.coupon-field {
+	display: grid;
+	gap: 0.35rem;
+}
+
+.coupon-message {
+	min-height: 1.7em;
+	margin: 0.25rem 0 0;
+	color: var(--purple);
+	font-size: 0.9rem;
+	font-weight: bold;
 }
 
 #checkout-form .add-button {
@@ -201,6 +271,7 @@ main {
 	font-weight: bold;
 }
 
+/* Store layout and product cards */
 .eyebrow {
 	margin: 0 0 0.4rem;
 	color: var(--hot-pink);
@@ -374,6 +445,7 @@ h2 {
 	pointer-events: none;
 }
 
+/* Cart controls */
 .secondary-button {
 	width: 100%;
 	margin-top: 0.7rem;
@@ -386,7 +458,9 @@ h2 {
 	background: var(--creme);
 }
 
+/* Footer */
 footer {
+	width: calc(100% + 3rem);
 	margin: 1rem -1.5rem 0;
 	padding: 2rem 1.5rem;
 	border-top: 5px solid var(--purple);
@@ -400,6 +474,7 @@ footer {
 	outline-offset: 3px;
 }
 
+/* Responsive layout */
 @media (max-width: 800px) {
 	.shop-layout,
 	.checkout-layout {
@@ -419,11 +494,26 @@ footer {
 
 	header,
 	footer {
+		width: calc(100% + 2rem);
 		margin-left: -1rem;
 		margin-right: -1rem;
 	}
 
 	.product-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.checkout-section {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 720px) {
+	.checkout-section {
+		grid-template-columns: 1fr;
+	}
+
+	.checkout-section .form-field-wide {
+		grid-column: auto;
 	}
 }

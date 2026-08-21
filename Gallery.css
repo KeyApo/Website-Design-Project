@@ -18,11 +18,16 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 /*=========================
   Header
 =========================*/
 
 header{
+    width: 100%;
   background: var(--hot-pink);
   padding: 2.5rem 2rem;
   text-align: center;
@@ -281,6 +286,19 @@ body {
     text-align: center;
 }
 
+footer {
+    width: 100%;
+    padding: 2rem 1.5rem;
+    border-top: 5px solid var(--purple);
+    background: var(--hot-pink);
+    color: white;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
 /* =========================================
     Media
 ========================================= */
@@ -299,5 +317,9 @@ body {
     .gallery {
     column-count: 1;
     gap: 18px;
+    }
+
+    .gallery-card:hover {
+    transform: none;
     }
 }
