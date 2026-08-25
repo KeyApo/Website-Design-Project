@@ -1,21 +1,30 @@
 /* Checkout product catalog and stored cart */
+document.querySelectorAll(".title-bar-controls").forEach((controls) => {
+	controls.setAttribute("aria-hidden", "true");
+	controls.querySelectorAll("button").forEach((button) => {
+		button.tabIndex = -1;
+	});
+});
+
 const products = [
-	{ id: "vic-standee", image: "Vic Blanco-Deis, Ref.png", name: "Vic Blanco-Deis Standee", price: 10 },
-	{ id: "alejandro-standee", image: "Alejandro, King of Hearts, Ref.png", name: "Alejandro Standee", price: 10 },
-	{ id: "star-globe-poster", image: "Star Globe Theater Promo, Orpheus and Pierre.png", name: "Star Globe Theater Mystery Poster", price: 25 },
-	{ id: "vhd-poster", image: "Vampire Hunter D, Patrick Nagel Inspo Art.png", name: "VHD Patrick Nagel Style Poster", price: 20 },
-	{ id: "holy-alucard", image: "Alucard, Holy Render.png", name: "Alucard in Holy Light Poster", price: 20 },
-	{ id: "bbg-alucard-poster", image: "BBG Alucard Redraw 2025 (UPDATED).png", name: "First Meeting Poster", price: 25 },
-	{ id: "d-pierre-poster", image: "D and Pierre, Humility COLORED.png", name: "Humility Poster", price: 20 },
-	{ id: "neon-birthday-poster", image: "Neon 22 Birthday.png", name: "NeonReflections 22nd Birthday Poster", price: 20 },
-	{ id: "pierre-render-standee", image: "Pierre, Reference + Render.png", name: "Pierre Penn Standee", price: 20 },
-	{ id: "voz-enki-poster", image: "Voz, Enki Meeting.png", name: "Voz and Enki Meeting Poster", price: 20 },
-	{ id: "voz-copy-poster", image: "Voz, Ref.png", name: "Voz Standee", price: 20 },
-	{ id: "d-pierre-keepsake-poster", image: "D and Pierre, Keepsake, JULY UPDATE.png", name: "Keepsake Poster", price: 25 }
+	{ id: "vic-standee", image: "Vic Blanco-Deis, Ref.png", name: "Vic Blanco-Deis Standee", stock: 1, price: 10 },
+	{ id: "alejandro-standee", image: "Alejandro, King of Hearts, Ref.png", name: "Alejandro Standee", stock: 2, price: 10 },
+	{ id: "star-globe-poster", image: "Star Globe Theater Promo, Orpheus and Pierre.png", name: "Star Globe Theater Mystery Poster", stock: 0, price: 25 },
+	{ id: "vhd-poster", image: "Vampire Hunter D, Patrick Nagel Inspo Art.png", name: "VHD Patrick Nagel Style Poster", stock: 5, price: 20 },
+	{ id: "holy-alucard", image: "Alucard, Holy Render.png", name: "Alucard in Holy Light Poster", stock: 1, price: 20 },
+	{ id: "bbg-alucard-poster", image: "BBG Alucard Redraw 2025 (UPDATED).png", name: "First Meeting Poster", stock: 10, price: 25 },
+	{ id: "d-pierre-poster", image: "D and Pierre, Humility COLORED.png", name: "Humility Poster", stock: 1, price: 20 },
+	{ id: "neon-birthday-poster", image: "Neon 22 Birthday.png", name: "NeonReflections 22nd Birthday Poster", stock: 10, price: 20 },
+	{ id: "pierre-render-standee", image: "Pierre, Reference + Render.png", name: "Pierre Penn Standee", stock: 5, price: 20 },
+	{ id: "voz-enki-poster", image: "Voz, Enki Meeting.png", name: "Voz and Enki Meeting Poster", stock: 3, price: 20 },
+	{ id: "voz-copy-poster", image: "Voz, Ref.png", name: "Voz Standee", stock: 0, price: 20 },
+	{ id: "d-pierre-keepsake-poster", image: "D and Pierre, Keepsake, JULY UPDATE.png", name: "Keepsake Poster", stock: 0, price: 25 }
 ];
 
 const cartStorageKey = "neonreflections-cart";
+const stockStorageKey = "neonreflections-stock";
 let cart;
+let stock = {};
 
 try {
 	cart = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
@@ -24,6 +33,25 @@ try {
 }
 
 if (!Array.isArray(cart)) cart = [];
+
+try {
+	stock = JSON.parse(localStorage.getItem(stockStorageKey) || "{}");
+} catch {
+	stock = {};
+}
+
+products.forEach((product) => {
+	const savedStock = stock[product.id];
+	stock[product.id] = Number.isInteger(savedStock) && savedStock >= 0
+		? savedStock
+		: (Number.isInteger(product.stock) && product.stock >= 0 ? product.stock : 0);
+});
+
+const saveStock = () => {
+	localStorage.setItem(stockStorageKey, JSON.stringify(stock));
+};
+
+saveStock();
 const checkoutItems = document.getElementById("checkout-items");
 const summaryCount = document.getElementById("summary-count");
 const summaryTotal = document.getElementById("summary-total");
@@ -32,8 +60,19 @@ const orderMessage = document.getElementById("order-message");
 const couponCode = document.getElementById("coupon-code");
 const applyCouponButton = document.getElementById("apply-coupon");
 const couponMessage = document.getElementById("coupon-message");
+const purchaseCookieKey = "neonreflections-purchases";
 
 const formatPrice = (price) => `$${price}`;
+
+const getPreviousPurchases = () => {
+	const cookie = document.cookie.split("; ").find((entry) => entry.startsWith(`${purchaseCookieKey}=`));
+	return cookie ? Number(cookie.split("=")[1]) || 0 : 0;
+};
+
+const recordPurchase = (quantity) => {
+	const purchaseCount = getPreviousPurchases() + quantity;
+	document.cookie = `${purchaseCookieKey}=${purchaseCount}; max-age=31536000; path=/; SameSite=Lax`;
+};
 
 /* Remove malformed or outdated cart entries */
 const validCart = cart.filter((item) => {
@@ -101,7 +140,27 @@ checkoutForm.addEventListener("submit", (event) => {
 		return;
 	}
 
+	let currentStock = stock;
+	try {
+		currentStock = JSON.parse(localStorage.getItem(stockStorageKey) || "{}");
+	} catch {
+		currentStock = stock;
+	}
+
+	const outOfStock = validCart.find((item) => item.quantity > (currentStock[item.id] || 0));
+	if (outOfStock) {
+		orderMessage.hidden = false;
+		orderMessage.textContent = "One or more items are no longer available in the requested quantity. Return to the store to update your cart.";
+		return;
+	}
+
 	localStorage.removeItem(cartStorageKey);
+	validCart.forEach((item) => {
+		currentStock[item.id] -= item.quantity;
+	});
+	stock = currentStock;
+	saveStock();
+	recordPurchase(totalItems);
 	checkoutForm.hidden = true;
 	orderMessage.hidden = false;
 	orderMessage.textContent = "Thank you! Your demo order has been recorded locally.";

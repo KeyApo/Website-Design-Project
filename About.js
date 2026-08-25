@@ -1,4 +1,11 @@
 /* About page contact form validation */
+document.querySelectorAll(".title-bar-controls").forEach((controls) => {
+	controls.setAttribute("aria-hidden", "true");
+	controls.querySelectorAll("button").forEach((button) => {
+		button.tabIndex = -1;
+	});
+});
+
 const contactForm = document.getElementById("contact-form");
 const contactStatus = document.getElementById("contact-status");
 

@@ -9,6 +9,7 @@
 	<script src="Shop.js" defer></script>
 </head>
 <body>
+	<a class="skip-link" href="#main-content">Skip to main content</a>
 	<div class="site-shell">
 		<header>
 			<h1>NeonReflections</h1>
@@ -24,7 +25,7 @@
 			</nav>
 		</header>
 
-		<main>
+		<main id="main-content">
 			<section class="shop-intro" aria-labelledby="shop-heading">
 				<div class="title-bar">
 					<div class="title-bar-text">NeonReflections - Store</div>
@@ -58,6 +59,7 @@
 					</div>
 					<div class="cart-content">
 						<h2 id="cart-heading">Your cart</h2>
+						<p id="cart-status" class="cart-status" role="status" aria-live="polite"></p>
 						<div id="cart-items" class="cart-items" aria-live="polite"></div>
 						<div class="cart-total"><span>Total</span><strong id="cart-total">$0</strong></div>
 						<a id="checkout-link" class="button-link disabled" href="Checkout.html" aria-disabled="true">Go to checkout</a>

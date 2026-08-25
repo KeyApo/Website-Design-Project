@@ -1,6 +1,13 @@
 /* Gallery card references */
 const galleryCards = document.querySelectorAll('.gallery-card');
 
+document.querySelectorAll(".title-bar-controls").forEach((controls) => {
+  controls.setAttribute("aria-hidden", "true");
+  controls.querySelectorAll("button").forEach((button) => {
+    button.tabIndex = -1;
+  });
+});
+
 galleryCards.forEach((card) => {
   const img = card.querySelector('img');
 

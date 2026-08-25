@@ -12,6 +12,13 @@ const featuredProducts = [
   {image: "Vampire Hunter D, Patrick Nagel Inspo Art.png", name: "VHD Patrick Nagel Style Poster", price: "$20"},
 ]
 
+document.querySelectorAll(".title-bar-controls").forEach((controls) => {
+  controls.setAttribute("aria-hidden", "true");
+  controls.querySelectorAll("button").forEach((button) => {
+    button.tabIndex = -1;
+  });
+});
+
 /* Render the featured product cards */
 /* =========================================
   Display Products
@@ -44,6 +51,12 @@ if (productsContainer) {
         productIndex++;
     }
     productsContainer.innerHTML = html;
+    document.querySelectorAll(".title-bar-controls").forEach((controls) => {
+      controls.setAttribute("aria-hidden", "true");
+      controls.querySelectorAll("button").forEach((button) => {
+        button.tabIndex = -1;
+      });
+    });
 }
 
 
@@ -67,17 +80,65 @@ document.querySelectorAll('.mySlides img').forEach(img => {
 
 /* Slideshow state and controls */
 let slideIndex = 0;
+let slideTimer;
 const slides = document.getElementsByClassName("mySlides");
+const dots = document.getElementsByClassName("dot");
+const previousButton = document.querySelector(".prev");
+const nextButton = document.querySelector(".next");
 
-if (slides.length > 0) showSlides();
+const showSlide = (index) => {
+  slideIndex = (index + slides.length) % slides.length;
 
-function showSlides() {
-  let i;
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  for (let slideNumber = 0; slideNumber < slides.length; slideNumber++) {
+    slides[slideNumber].style.display = slideNumber === slideIndex ? "block" : "none";
+    dots[slideNumber].classList.toggle("active", slideNumber === slideIndex);
+    dots[slideNumber].setAttribute("aria-current", slideNumber === slideIndex ? "true" : "false");
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1;}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 10000); // Change image every 10 seconds
+};
+
+const scheduleSlides = () => {
+  clearTimeout(slideTimer);
+  slideTimer = setTimeout(() => {
+    showSlide(slideIndex + 1);
+    scheduleSlides();
+  }, 10000);
+};
+
+const plusSlides = (step) => {
+  showSlide(slideIndex + step);
+  scheduleSlides();
+};
+
+const currentSlide = (slideNumber) => {
+  showSlide(slideNumber - 1);
+  scheduleSlides();
+};
+
+const animateControl = (control) => {
+  const animationClass = control.classList.contains("slide-control")
+    ? "control-clicked"
+    : "dot-clicked";
+  control.classList.remove(animationClass);
+  void control.offsetWidth;
+  control.classList.add(animationClass);
+};
+
+if (slides.length > 0) {
+  showSlide(0);
+  scheduleSlides();
+
+  previousButton.addEventListener("click", () => {
+    plusSlides(-1);
+    animateControl(previousButton);
+  });
+  nextButton.addEventListener("click", () => {
+    plusSlides(1);
+    animateControl(nextButton);
+  });
+  Array.from(dots).forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentSlide(index + 1);
+      animateControl(dot);
+    });
+  });
 }

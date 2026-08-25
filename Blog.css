@@ -81,6 +81,21 @@ nav a:focus {
 	border-color: white;
 }
 
+.skip-link {
+	position: absolute;
+	top: -4rem;
+	left: 1rem;
+	z-index: 20;
+	padding: 0.65rem 0.9rem;
+	background: var(--black);
+	color: white;
+	font-weight: bold;
+}
+
+.skip-link:focus {
+	top: 1rem;
+}
+
 main {
 	padding: 2.5rem 0;
 }
@@ -314,7 +329,7 @@ footer p {
 	margin: 0;
 }
 
-:focus {
+:focus-visible {
 	outline: 3px solid #ffdd77;
 	outline-offset: 3px;
 }
@@ -353,5 +368,16 @@ footer p {
 
 	.contact-form .form-field-wide {
 		grid-column: auto;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
 	}
 }

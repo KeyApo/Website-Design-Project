@@ -83,6 +83,21 @@ nav a:focus {
 	border-color: white;
 }
 
+.skip-link {
+	position: absolute;
+	top: -4rem;
+	left: 1rem;
+	z-index: 20;
+	padding: 0.65rem 0.9rem;
+	background: var(--black);
+	color: white;
+	font-weight: bold;
+}
+
+.skip-link:focus {
+	top: 1rem;
+}
+
 main {
 	padding: 2.5rem 0;
 }
@@ -329,6 +344,15 @@ h2 {
 	transition: transform 0.2s ease;
 }
 
+.product-card.sold-out {
+	filter: grayscale(1);
+	opacity: 0.58;
+}
+
+.product-card.sold-out:hover {
+	transform: none;
+}
+
 .product-card:hover {
 	transform: translateY(-4px);
 }
@@ -356,6 +380,13 @@ h2 {
 	font-weight: bold;
 }
 
+.stock-label {
+	min-height: 1.7em;
+	margin: -0.75rem 0 1rem;
+	font-size: 0.85rem;
+	font-weight: bold;
+}
+
 .add-button,
 .button-link,
 .secondary-button {
@@ -378,6 +409,22 @@ h2 {
 	background: var(--black);
 }
 
+.add-button:disabled {
+	border-color: #555;
+	background: #777;
+	color: #ddd;
+	cursor: not-allowed;
+}
+
+.item-added {
+	animation: item-added 0.7s ease;
+}
+
+@keyframes item-added {
+	0%, 100% { box-shadow: 0 0 0 0 rgba(255, 221, 119, 0); }
+	35% { box-shadow: 0 0 0 6px #ffdd77; }
+}
+
 .cart-panel {
 	position: sticky;
 	top: 1rem;
@@ -386,6 +433,24 @@ h2 {
 .cart-content h2 {
 	margin: 0 0 1rem;
 	font-size: 1.4rem;
+}
+
+.cart-status {
+	min-height: 3.4em;
+	margin: -0.5rem 0 1rem;
+	color: var(--purple);
+	font-size: 0.78rem;
+	font-weight: bold;
+}
+
+.cart-bounce {
+	animation: cart-bounce 0.55s ease;
+}
+
+@keyframes cart-bounce {
+	0%, 100% { transform: translateY(0); }
+	35% { transform: translateY(-8px); }
+	65% { transform: translateY(3px); }
 }
 
 .cart-items {
@@ -469,7 +534,7 @@ footer {
 	text-align: center;
 }
 
-:focus {
+:focus-visible {
 	outline: 3px solid #ffdd77;
 	outline-offset: 3px;
 }
@@ -515,5 +580,16 @@ footer {
 
 	.checkout-section .form-field-wide {
 		grid-column: auto;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
 	}
 }

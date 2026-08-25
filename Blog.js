@@ -1,4 +1,11 @@
 /* Blog search controls */
+document.querySelectorAll(".title-bar-controls").forEach((controls) => {
+	controls.setAttribute("aria-hidden", "true");
+	controls.querySelectorAll("button").forEach((button) => {
+		button.tabIndex = -1;
+	});
+});
+
 const searchInput = document.getElementById("post-search");
 const posts = document.querySelectorAll(".post-card");
 const noResults = document.getElementById("no-results");

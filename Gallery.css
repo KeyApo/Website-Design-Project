@@ -11,6 +11,8 @@
   --purple: #4e2e7a;
   --creme: #dbb59a;
   --black: #000000;
+    --panel: #f8eadc;
+    --muted: #f8eadc;
 
 }
 
@@ -83,7 +85,27 @@ html, body {
     min-height: 100%;
     font-family:'Courier New', Courier, monospace;
     background-color: var(--creme);
+    color: var(--black);
+}
+
+header,
+footer {
     color: white;
+}
+
+.skip-link {
+    position: absolute;
+    top: -4rem;
+    left: 1rem;
+    z-index: 20;
+    padding: 0.65rem 0.9rem;
+    background: var(--black);
+    color: white;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    top: 1rem;
 }
 
 body {
@@ -260,6 +282,16 @@ body {
     transform: translateY(0);
 }
 
+.gallery-card:focus-within {
+    outline: 3px solid #ffdd77;
+    outline-offset: 4px;
+}
+
+:focus-visible {
+    outline: 3px solid #ffdd77;
+    outline-offset: 3px;
+}
+
 .caption strong {
     display: block;
     font-size: 0.82rem;
@@ -321,5 +353,16 @@ footer p {
 
     .gallery-card:hover {
     transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
