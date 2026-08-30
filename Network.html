@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Connection | NeonReflections</title>
+  <link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.scoped.css">
+  <link rel="stylesheet" href="Blog.css">
+  <link rel="stylesheet" href="Network.css">
+  <script src="Network.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="site-shell">
+    <header>
+      <h1>NeonReflections</h1>
+      <p>Connection status and network details</p>
+      <nav aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Shop.html">Store</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="Network.html" aria-current="page">Network</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="page-intro" aria-labelledby="network-heading">
+        <div class="title-bar">
+          <div class="title-bar-text">NeonReflections - Network Connection</div>
+          <div class="title-bar-controls" aria-label="window controls">
+            <button type="button" aria-label="Minimize"></button>
+            <button type="button" aria-label="Restore"></button>
+            <button type="button" aria-label="Close"></button>
+          </div>
+        </div>
+
+        <div class="intro-content network-content">
+          <p class="eyebrow">System status</p>
+          <h2 id="network-heading">Connection details</h2>
+          <p class="network-summary">This page reports the active browser connection details for the current local site session.</p>
+
+          <div class="connection-grid" aria-live="polite">
+            <article class="status-card">
+              <span class="status-label">Local Host Name</span>
+              <strong id="host-name">Loading...</strong>
+            </article>
+
+            <article class="status-card">
+              <span class="status-label">Communication Port</span>
+              <strong id="port-number">Loading...</strong>
+            </article>
+
+            <article class="status-card">
+              <span class="status-label">Transmission Protocol</span>
+              <strong id="protocol-name">Loading...</strong>
+            </article>
+
+            <article class="status-card">
+              <span class="status-label">Last Website Launch</span>
+              <strong id="launch-time">Loading...</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer><p>&copy; <span data-current-year>2026</span> Keymy Aponte / NeonReflections</p></footer>
+  </div>
+</body>
+</html>
