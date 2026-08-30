@@ -1,6 +1,3 @@
-# Website-Design-Project
-A project in which I showcase my skills in HTML and CSS for ECPI that features original artwork through an online store.
-
 # Title and Overview
 # NeonReflections 
 A fandom-based online store that sells prints and merchandise of fan work and original characters from the artist NeonReflections (aka me, Keymy Aponte). All the artwork and shop galleries will be presented in a sleek and fun pseudo-Windows Vista aesthetic to draw in potential buyers and fans of all kinds. 
@@ -37,6 +34,8 @@ Hi! I’m Keymy Aponte. I am a digital artist and novice web designer, learning 
 ## Contact (SAMPLE)
 
 - GitHub: `https://github.com/keyapo6946`
+
+---
 
 # Old Feature roadmap 
 
