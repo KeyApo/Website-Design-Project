@@ -10,7 +10,7 @@ Hi! I’m Keymy Aponte. I am a digital artist and novice web designer, learning 
 
 ## Featured Project
 
-### 1) Web Design Final Project: NeonReflections
+### Web Design Final Project: NeonReflections
 - Tech: JavaScript, HTML, CSS
 
 **Highlights:**
