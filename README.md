@@ -5,7 +5,40 @@ A project in which I showcase my skills in HTML and CSS for ECPI that features o
 # NeonReflections 
 A fandom-based online store that sells prints and merchandise of fan work and original characters from the artist NeonReflections (aka me, Keymy Aponte). All the artwork and shop galleries will be presented in a sleek and fun pseudo-Windows Vista aesthetic to draw in potential buyers and fans of all kinds. 
 
-# Feature roadmap 
+---
+
+# About
+
+Hi! I’m Keymy Aponte. I am a digital artist and novice web designer, learning all I can to create stylish and functionally sound websites.
+
+## Featured Project
+
+### 1) Web Design Final Project: NeonReflections
+- Tech: JavaScript, HTML, CSS
+
+**Highlights:**
+- LocalStorage, Cookies, and SessionStorage persistence
+- Responsive layout
+- Accessible components
+- Working shop functions
+- Simple Animations
+- Various artwork created by me
+
+---
+
+## Skills
+
+- Languages: HTML, CSS, JavaScript, C#
+- Tools: GitHub Desktop, Visual Studio Code, and Clip Studio Paint
+- Other: Digital Art, Testing, Accessibility, Documentation
+
+---
+
+## Contact (SAMPLE)
+
+- GitHub: `https://github.com/keyapo6946`
+
+# Old Feature roadmap 
 
 Week 1 (August 2nd – August  9th) - Set up general site layout for each page including organization of information, simple containers of text, makings of a banner, and image placeholders 
 
